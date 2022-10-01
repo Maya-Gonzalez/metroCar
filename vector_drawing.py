@@ -115,7 +115,7 @@ def draw(*objects, origin=True, axes=True, grid=(1, 1), nice_aspect_ratio=True,
             for i in range(0, len(object.vertices)):
                 x1, y1 = object.vertices[i]
                 x2, y2 = object.vertices[(i + 1) % len(object.vertices)]
-                plt.plot([x1, x2], [y1, y2], color=object.color)
+                plt.plot([x1, x2], [y1, y2], linewidth=1, color=object.color)
             if object.fill:
                 xs = [v[0] for v in object.vertices]
                 ys = [v[1] for v in object.vertices]
@@ -137,7 +137,7 @@ def draw(*objects, origin=True, axes=True, grid=(1, 1), nice_aspect_ratio=True,
         elif type(object) == Segment:
             x1, y1 = object.start_point
             x2, y2 = object.end_point
-            plt.plot([x1, x2], [y1, y2], color=object.color)
+            plt.plot([x1, x2], [y1, y2], linewidth=1, color=object.color)
         else:
             raise TypeError("Unrecognized object: {}".format(object))
 
@@ -152,4 +152,5 @@ def draw(*objects, origin=True, axes=True, grid=(1, 1), nice_aspect_ratio=True,
     # if save_as:
     #     plt.savefig(save_as)
 
-    plt.show()
+    #**THIS NEEDS TO BE COMMENTED OUT OF EACH draw() call will created a new popup screen.
+    # plt.show()
