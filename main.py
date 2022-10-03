@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import math as m
 # from vector_drawing import *
 import front_of_train
+import middle_train
 
 figure, axes = plt.subplots()
 axes.set_aspect(1)  # creates a 1:1 ratio
@@ -21,6 +22,7 @@ def main():
     front_of_train.polygons_of_train()
     front_of_train.lines_of_train()
     front_of_train.circles_of_train()
+    middle_train.outerBox()
 
     plt.show()
 
