@@ -23,6 +23,9 @@ def main():
     front_of_train.lines_of_train()
     front_of_train.circles_of_train()
     middle_train.outerBox()
+    middle_train.plotHorizLines()
+    middle_train.drawWindows()
+    middle_train.plotDoors()
 
     plt.show()
 
