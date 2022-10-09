@@ -49,18 +49,47 @@ def horiz():
     plt.plot((xSec5Vert2,x2),(yhoriz4, yhoriz4), linewidth=.8, color  = 'k')
 
     # lines above windows/doors
+    # line1
+    plt.plot((x1, x2), (14, 14), linewidth=.8, color='k')
+    plt.fill((x1,x2,x2,x1,x1),(14,14,15,15,14), color = '#594246')
+    # line2
     plt.plot((x1, x2), (16, 16), linewidth=.8, color='k')
-    plt.plot((x1, x2), (17, 17), linewidth=.8, color='k')
+    plt.fill((x1,x2,x2,x1,x1),(15,15,16,16,15), color = '#F2DCE0')
+    # line3
     plt.plot((x1, x2), (18, 18), linewidth=.8, color='k')
+    plt.fill((x1,x2,x2,x1,x1),(16,16,18,18,16), color = '#F2ACBF')
+    # line4
     plt.plot((x1, xSec5Vert2), (22, 22), linewidth=.8, color='k')
+    plt.fill((x1,x2,x2,x1,x1),(18,18,22,22,18), color = '#F2DCE0')
+    plt.fill((xSec5Vert2,x2,x2,xSec5Vert2,xSec5Vert2),(22,22,yhoriz2,yhoriz2,22), color = '#F2DCE0')
 
 
     # bottom of train
+    # y section1: directly below doors
     plt.plot((xdoor1, 169), (yhoriz1, yhoriz1), linewidth=.4, color='k')
+    plt.fill((xdoor1,xdoor4,xdoor4,xdoor1,xdoor1),(yhoriz1,yhoriz1,yhoriz2,yhoriz2,yhoriz1), color = '#F2ACBF')
+    plt.fill((169,xdoor4,xdoor4,169,169),(22,22,yhoriz2,yhoriz2,22), color = '#F2ACBF')
+    plt.fill((168,xdoor4,xdoor4,169,168),(22,22,23,23,22), color = '#F2ACBF')
+    plt.fill((x1,xSec1Vert1,xSec1Vert1,x1,x1),(yhoriz1,yhoriz1,yhoriz2,yhoriz2,yhoriz1), color = '#F2ACBF')
+    # y section2
     plt.plot((xdoor1, xdoor4), (yhoriz2, yhoriz2), linewidth=.8, color='k')
+    plt.fill((xdoor1,xdoor4,xdoor4,xdoor1,xdoor1),(yhoriz2,yhoriz2,yhoriz3,yhoriz3,yhoriz2), color = '#F2DCE0')
+    plt.fill((x1,xSec1Vert1,xSec1Vert1,x1,x1),(yhoriz2,yhoriz2,yhoriz3,yhoriz3,yhoriz2), color = '#F2DCE0')
+        # s section 5
+    plt.fill((xSec5Vert2,x2,x2,xSec5Vert2,xSec5Vert2),(yhoriz2,yhoriz2,yhoriz3,yhoriz3,yhoriz2), color = '#F2DCE0')
+    # y section3
     plt.plot((xdoor1, xdoor4), (yhoriz3, yhoriz3), linewidth=.8, color='k')
+    plt.fill((xdoor1,xdoor4,xdoor4,xdoor1,xdoor1),(yhoriz3,yhoriz3,yhoriz4,yhoriz4,yhoriz3), color = '#594246')
+    plt.fill((x1,xSec1Vert1,xSec1Vert1,x1,x1),(yhoriz3,yhoriz3,yhoriz4,yhoriz4,yhoriz3), color = '#594246')
+    plt.fill((xSec5Vert2,x2,x2,xSec5Vert2,xSec5Vert2),(yhoriz3,yhoriz3,yhoriz4,yhoriz4,yhoriz3), color = '#594246')
+    # y section4
     plt.plot((xdoor1, xdoor4), (yhoriz4, yhoriz4), linewidth=.8, color='k')
+    plt.fill((xdoor1,xdoor4,xdoor4,xdoor1,xdoor1),(yhoriz4,yhoriz4,yhoriz5,yhoriz5,yhoriz4), color = '#F2ACBF')
+    plt.fill((x1,xSec1Vert1,xSec1Vert1,x1,x1),(yhoriz4,yhoriz4,yhoriz5,yhoriz5,yhoriz4), color = '#F2ACBF')
+    plt.fill((xSec5Vert2,x2,x2,xSec5Vert2,xSec5Vert2),(yhoriz4,yhoriz4,yhoriz5,yhoriz5,yhoriz4), color = '#F2ACBF')
+    # y section 5
     plt.plot((x1, x2), (yhoriz5, yhoriz5), linewidth=.8, color='k')
+    plt.fill((x1,x2,x2,x1,x1),(yhoriz5,yhoriz5,y2,y2,yhoriz3), color = '#F2DCE0')
     plt.plot((x1, x2), (47, 47), linewidth=.8, color='k')
     # Filling in objects 
     x = [xdoor1, xdoor4, xdoor4, xdoor1, xdoor1]
@@ -165,7 +194,6 @@ def ellipse():
         xlast=x
         ylast=y
 
-    #plt.scatter(xc,yc,s=15,color='g')
 
     # circle1 = plt.Circle((180, 30), 1, color='r')
     # plt.gca().add_patch(circle1)
