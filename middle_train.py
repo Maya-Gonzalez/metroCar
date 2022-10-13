@@ -1,9 +1,14 @@
 from vector_drawing import *
 '''
-Maya Gonzalez
+Student Author Name: Maya Gonzalez
+Group Name: Rosa
+Project 1
+Fall 2022
+COMP 313: Computer Graphics
+Professor Schiffer
 '''
-# section1 --> lines before first major vert line
-# exoskeleton
+
+
 x1 = 94
 x2 = 174
 y1 = 14
@@ -14,7 +19,7 @@ def outerBox():
     x = [x1, x2, x2, x1, x1]
     y = [y1, y1, y2, y2, y1]
     plt.plot(x, y, linewidth=.8, color='k')
-# x Values
+# global x Values
 xdoor1 = 97
 xdoor2 = 115.5
 xdoor3 = 153
@@ -25,7 +30,7 @@ xSec1Vert1 = 96
 xSec5Vert1 = xdoor4 + .75
 xSec5Vert2 = xSec5Vert1 + .75
 
-# y values
+# global y values
 yhoriz1 = 40
 yhoriz2 = 41
 yhoriz3 = 43
@@ -33,7 +38,6 @@ yhoriz4 = 44
 yhoriz5 = 45
 yBottomWindow = 37.5
 
-# y values
 def plotLines():
     outerBox()
     horiz()
