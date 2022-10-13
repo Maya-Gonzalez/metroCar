@@ -6,7 +6,7 @@ Maya Gonzalez
 # exoskeleton
 x1 = 94
 x2 = 174
-y1 = 13
+y1 = 14
 y2 = 47
 
 def outerBox():
@@ -105,8 +105,6 @@ def horiz():
     plt.plot((x1, x2), (yhoriz5, yhoriz5), linewidth=.8, color='k')
     plt.fill((x1,x2,x2,x1,x1),(yhoriz5,yhoriz5,y2,y2,yhoriz3), color = '#F2DCE0')
     plt.plot((x1, x2), (47, 47), linewidth=.8, color='k')
-
-
 
 def plotVertLines():
     # section 1
