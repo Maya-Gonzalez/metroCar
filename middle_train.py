@@ -211,33 +211,33 @@ def drawWindows():
     plt.plot((xMax-1, xMax), (23, 23), linewidth=.8, color='k')
     plt.plot((xMax-1, xMax-1), (22, 23), linewidth=.8, color='k')
 def connector():
-    plt.fill((x2,x2+.75,x2+.75, x2, x2), (y1+.5,y1+.5, y2-.5, y2-.5, y1+.5) , color = '#594246')
+    plt.fill((x2,x2+.75,x2+.75, x2, x2), (y1+.5,y1+.5, y2-.5, y2-.5, y1+.5) , color = '#A67C87')
     # line1
     plt.plot((x2+.75,x2+.75), (y1+.5, y2-.5), linewidth = .8, color = 'k' )
     arc(x2+.378, y1+.5, r = .37, ang1 = 180, ang2 = 0, dome=True)
     arc(x2+.378, y2-.5, r = .37, ang1 = 0, ang2 = 180,dome = False) # lower
-    plt.fill((x2+.75,x2+1.5,x2+1.5, x2+.75, x2+.75), (y1+.5,y1+.5,y2-.5, y2-.5, y1+.5) , color = '#594246') # fill rect
-    circle = plt.Circle((x2+.378, y1+.5), .37, color='#594246') # fill in arc
+    plt.fill((x2+.75,x2+1.5,x2+1.5, x2+.75, x2+.75), (y1+.5,y1+.5,y2-.5, y2-.5, y1+.5) , color = '#A67C87') # fill rect
+    circle = plt.Circle((x2+.378, y1+.5), .37, color='#A67C87') # fill in arc
     plt.gca().add_patch(circle)
-    lowerCircle = plt.Circle((x2+.378, y2-.5), .37, color='#594246')
+    lowerCircle = plt.Circle((x2+.378, y2-.5), .37, color='#A67C87')
     plt.gca().add_patch(lowerCircle)
 
     # line2
     plt.plot((x2+1.5,x2+1.5), (y1+.5, y2-.5), linewidth = .8, color = 'k' )
     arc(x2+.75+.378, y1+.5, r = .37, ang1 = 0, ang2 = 180, dome=True)
     arc(x2+.75+.378, y2-.5, r = .37, ang1 = 0, ang2 = 180,dome = False) # lower
-    plt.fill((x2+.75+.378,x2+2.25,x2+2.25, x2+.75+.378, x2+.75+.378), (y1+.5,y1+.5,y2-.5, y2-.5, y1+.5) , color = '#594246')
-    circle = plt.Circle((x2+.75+.378, y1+.5), .37, color='#594246')
+    plt.fill((x2+.75+.378,x2+2.25,x2+2.25, x2+.75+.378, x2+.75+.378), (y1+.5,y1+.5,y2-.5, y2-.5, y1+.5) , color = '#A67C87')
+    circle = plt.Circle((x2+.75+.378, y1+.5), .37, color='#A67C87')
     plt.gca().add_patch(circle)
-    lowerCircle = plt.Circle((x2+.75+.378, y2-.5), .37, color='#594246')
+    lowerCircle = plt.Circle((x2+.75+.378, y2-.5), .37, color='#A67C87')
     plt.gca().add_patch(lowerCircle)
     # line3
     plt.plot((x2+2.25,x2+2.25), (y1+.5, y2-.5), linewidth = .8, color = 'k' )
     arc(x2+1.5+.378, y1+.5, r = .37, ang1 = 0, ang2 = 180, dome=True)
     arc(x2+1.5+.378, y2-.5, r = .37, ang1 = 0, ang2 = 180, dome = False) # lower
-    circle = plt.Circle((x2+1.5+.378, y1+.5), .37, color='#594246')
+    circle = plt.Circle((x2+1.5+.378, y1+.5), .37, color='#A67C87')
     plt.gca().add_patch(circle)
-    lowerCircle = plt.Circle((x2+1.5+.378, y2-.5), .37, color='#594246')
+    lowerCircle = plt.Circle((x2+1.5+.378, y2-.5), .37, color='#A67C87')
     plt.gca().add_patch(lowerCircle)
 
    
