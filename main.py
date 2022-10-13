@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math as m
+
+import back_of_train
 # from vector_drawing import *
 import front_of_train
 import middle_train
@@ -26,6 +28,7 @@ def main():
     # middle_train.plotVertLines()
     # #middle_train.arc()
     # middle_train.connector()
+    back_of_train.back_of_train()
 
     plt.show()
 
