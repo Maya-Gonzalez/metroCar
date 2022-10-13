@@ -435,3 +435,9 @@ class EllipseArc:
         #             # print('NEG:', 'P1:', xplast, -yplast, 'P2:', xp, -yp)
         #         xplast = xp
         #         yplast = yp
+
+def drawFrontTrain():
+    details()
+    polygons_of_train()
+    circles_of_train()
+    lines_of_train()

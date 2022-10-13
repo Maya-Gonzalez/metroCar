@@ -19,9 +19,7 @@ def main():
     # front_of_train.test()
 
     # ---------------- Actual Work
-    front_of_train.polygons_of_train()
-    front_of_train.lines_of_train()
-    front_of_train.circles_of_train()
+    front_of_train.drawFrontTrain()
     middle_train.plotLines()
     # middle_train.horiz()
     # middle_train.drawWindows()
