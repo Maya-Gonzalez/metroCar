@@ -17,17 +17,16 @@ def main():
     y = [49, 49]
     plt.plot(x, y, linewidth=1, color='grey')
 
+    # # ---------------Adding Credits
+    # str = "Group Rosa: Stephanie Enriquez, Maya Gonzalez, Cassandra Gutierrez"
+    # plt.text(60,55,str,fontsize=10)
+
     # -------------- Testing
     # front_of_train.test()
 
     # ---------------- Actual Work
     front_of_train.drawFrontTrain()
     middle_train.plotLines()
-    # middle_train.horiz()
-    # middle_train.drawWindows()
-    # middle_train.plotVertLines()
-    # #middle_train.arc()
-    # middle_train.connector()
     back_of_train.back_of_train()
 
     plt.show()
