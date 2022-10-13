@@ -1,46 +1,15 @@
 '''
-    INSERT HEADER
-     front_of_train.details()
-    front_of_train.polygons_of_train()
-    front_of_train.circles_of_train()
-    front_of_train.lines_of_train()
+    Student Author Name: Stephanie Enriquez Isais
+    Group Name: Team Rosa
+    Project 1
+    Fall 2022
+    COMP 313: Computer Graphics
+    Professor Schiffer
 '''
 import numpy as np
 import matplotlib.pyplot as plt
 import math as m
 from vector_drawing import *
-
-dino_vectors = [(6, 4), (3, 1), (1, 2), (-1, 5), (-2, 5), (-3, 4), (-4, 4),
-                (-5, 3), (-5, 2), (-2, 2), (-5, 1), (-4, 0), (-2, 1), (-1, 0), (0, -3),
-                (-1, -4), (1, -4), (2, -3), (1, -2), (3, -1), (5, 1)
-                ]
-
-
-def translate(translation, vectors):
-    return [add(translation, v) for v in vectors]
-
-
-def add(*vectors):
-    return sum([v[0] for v in vectors]), sum([v[1] for v in vectors])
-
-
-def hundred_dinos():
-    translations = [(12 * x, 10 * y)
-                    for x in range(-5, 5)
-                    for y in range(-5, 5)]
-    dinos = [Polygon(*translate(t, dino_vectors), color=blue)
-             for t in translations]
-    draw(*dinos, grid=None, axes=None, origin=None)
-
-
-def test():
-    print("outsside the draw method")
-
-    draw(
-        # Points(*dino_vectors)
-        hundred_dinos()
-    )
-
 
 def colors(inputColor=0):
     if inputColor == 1:
@@ -68,21 +37,11 @@ def polygons_of_train():
     level7 = [(73, 32), (90, 32), (90, 31.5), (73, 31.5)]
     level8 = [(73, 31.5), (90, 31.5), (90, 31), (74, 31), (80, 19), (79.5, 19)]
 
-    # vertical lines
-    column1 = [(90, 47), (90.66, 47), (90.66, 14), (90, 14)]
-    column2 = [(90.66, 47), (91.32, 47), (91.32, 14), (90.66, 14)]
-    column3 = [(91.32, 47), (91.98, 47), (91.98, 14), (91.32, 14)]
-    column4 = [(91.98, 47), (92.64, 47), (92.64, 14), (91.98, 14)]
-    column5 = [(92.64, 47), (93.3, 47), (93.3, 14), (92.64, 14)]
-    column6 = [(93.3, 47), (93.96, 47), (93.96, 14), (93.3, 14)]
-
-    level_test = [(74, 47), (74, 48), (83, 48), (83, 47), (67, 46), (68, 47), (90, 47), (90, 46)]
-
-    poly_lev_10 = Polygon(*level0)
+    #windows of train
+    window1 = [(90, 31), (74, 31), (80, 19), (90, 19)]
+    window2 = [(90, 31), (87, 31), (87, 19), (90, 19)]
 
     draw(
-        # Polygon(*level0),
-        # plt.gca().add_patch(poly_lev_10),
         Polygon(*level0, color="k", fill=colors(4)),
         Polygon(*level1, color="k", fill=colors(2)),
         Polygon(*level2, color="k", fill=colors(3)),
@@ -92,15 +51,16 @@ def polygons_of_train():
         Polygon(*level6, color="k", fill=colors(2)),
         Polygon(*level7, color="k", fill=colors(1)),
         Polygon(*level8, color="k", fill=colors(1)),
-        Polygon(*column1, color="k", fill=colors(4)),
-        Polygon(*column2, color="k", fill="k"),
-        Polygon(*column3, color="k", fill=colors(4)),
-        Polygon(*column4, color="k", fill=colors(4)),
-        Polygon(*column5, color="k", fill=colors(4)),
-        Polygon(*column6, color="k", fill=colors(4)),
 
-        # Polygon(*level_test)
+        Polygon(*window1, color="k", fill="#FFFFFF"),
+        Polygon(*window2, color="k", fill="#e3e3e3"),
     )
+    # windowshine
+    shine_y = [31, 31, 26, 25]
+    shine_x = [81, 82, 87, 87]
+    shine_y_V2 = [31, 31, 27.6, 27]
+    shine_x_V2 = [83, 83.4, 87, 87]
+    plt.fill(shine_x, shine_y, colors(6), shine_x_V2, shine_y_V2, colors(6))
 
 
 def lines_of_train():
@@ -113,18 +73,16 @@ def lines_of_train():
 
 
 def circles_of_train():
-    # wheels
+    # Wheels Arcs
     Arc(70.5, 46, 3, 20, (180 - 13), 20).draw_arc()
     Arc(87, 46, 3, 20, (180 - 13), 20).draw_arc()
+    #-----------------------------------------------
 
-    # (self, xc=1., yc=1., r=5, angle1=0, angle2=180, density=100)
-    # Arc(180, 80, 120, 290, 303, 20).draw_arc()
-
-    # arcs for front of train -  xc=1., yc=1., r=5, angle1=0., angle2=180., density=100)
+    # Front of train - Arc Outline
     Arc(179, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arc()
     Arc(180, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arc()
-    # Filling in arcs
-    # Arc(179.15, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arcFill()
+
+    # Front of train - Filling in arcs
     Arc(179.2, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arcFill()
     Arc(179.3, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arcFill()
     Arc(179.4, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arcFill()
@@ -134,51 +92,58 @@ def circles_of_train():
     Arc(179.8, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arcFill()
     Arc(179.9, 81, 120, (-180 + 20), (-180 + 33), 20).draw_arcFill()
 
-    # EllipseArc().draw()
-    # EllipseArc(1, 30, 60, 0, 0, 70., 50.).draw()
+    #-----------------------------------------------------
 
-    # (1 start_angle=30, end_angle=60, x_offset=-10, y_offset=-20, a=70., b=50.)
-    # Top of the train arc
+    # Top of train - arc
     EllipseArc(1, 21, 76, 92, 22, 20, 8).draw()
 
-    # EllipseArc(2, 30, 60, -130, -190, 70., 50.).draw()
-
+    #Top of train - Detail ellises under the top of train
     EllipseArc(1, 26, 76, 92, 25, 20, 8).draw()
     EllipseArc(1, 30, 76, 92, 25.5, 20, 8).draw()
     EllipseArc(1, 30, 76, 92, 12.5, 20, 8).drawUpsideDown()
 
-    #Window ellipse fill
+    # Top of train - Window detail ellipse fill
     EllipseArc(1, 28, 76, 92, 25.2, 20, 8).drawFill()
     EllipseArc(1, 28, 76, 92, 25.3, 20, 8).drawFill()
-    #EllipseArc(1, 26, 76, 92, 25, 20, 8).drawFill()
 
+def connector():
+    #Creating background box
+    x_vals = [90, 90, 94, 94, 90]
+    y_vals = [14.5, 46.5, 46.5, 14.5, 14.5]
+    plt.fill(x_vals, y_vals, color = colors(4))
+    #Setting the back x value
+    x2 = 90
+    #Setting the top and botton y values
+    y1 = 14
+    y2 = 47
+    for x in range(5):
+        plt.plot((x2 + (x * .8), x2 + (x * .8)), (y1 + .5, y2 - .5), linewidth=.8, color='k')
+        Arc.arcSmall(x2 + (x*.8) + .4, y1 + .5, r=.39, ang1=0, ang2=180, dome=True)
+        Arc.arcSmall(x2 + (x*.8) + .4, y2 - .5, r=.39, ang1=0, ang2=180, dome=False)  # lower
 
 def details():
+    # background color
+    Arc(180, 81, 120, (-180 + 20), (-180 + 33), 20).draw_SquareFill()
+    EllipseArc(1, 21, 76, 92, 22, 20, 8).drawSquareFill()
+
     # Text on train
     plt.text(77, 36, "Rosa", size=10, fontweight="bold")
     plt.text(77, 38, "Express", size=7, fontstyle="italic")
 
-    # Detail lines
-    topFront = [(77, 16), (78.5, 16)]
-
-    # draw(
-    #     Segment((77.6, 16.8), (78.7, 16.8), "k")
-    # )
-
-    #nail top train details
+    # decorative nails - top train details
     EllipseArc(5, 21, 76, 93, 22, 20, 7.5).drawDots()
 
-    # windowshine
-    shine_y = [31, 31, 26, 25]
-    shine_x = [81, 82, 87, 87]
-    shine_y_V2 = [31, 31, 27.6, 27]
-    shine_x_V2 = [83, 83.4, 87, 87]
-    plt.fill(shine_x, shine_y, colors(6), shine_x_V2, shine_y_V2, colors(6))
 
     # filling in the wheels
     Arc(70.5, 46, 3, 20, (180 - 13), 20).draw_wheelFill()
     Arc(87, 46, 3, 20, (180 - 13), 20).draw_wheelFill()
 
+def drawFrontTrain():
+    details()
+    polygons_of_train()
+    circles_of_train()
+    lines_of_train()
+    connector()
 
 class Arc:
     def __init__(self, xc=1., yc=1., r=5, angle1=0., angle2=180., density=100):
@@ -238,6 +203,35 @@ class Arc:
             xlast = x
             ylast = y
 
+    def draw_SquareFill(self):
+        r = self.r
+        xc = self.xc
+        yc = self.yc
+        density = self.density
+        # plt.scatter(xc, yc, s=1)
+
+        p1 = self.angle1 * np.pi / 180
+        p2 = self.angle2 * np.pi / 180
+        # ------------- Establishing the density
+        dp = (p2 - p1) / density
+
+        # ------------- Setting the x and y last
+        xlast = xc + r * np.cos(p1)
+        ylast = yc + r * np.sin(p1)
+
+        # -------------- Creating the loop to plot lines
+        for p in np.arange(p1 + dp, p2, dp):
+            x = xc + r * np.cos(p)
+            y = yc + r * np.sin(p)
+            # plt.plot([xlast, x], [ylast, y], linewidth=1, color=colors(3))
+            # -------------- Calculating the distance between two points to create a square
+            dist = np.sqrt((x - xlast) ** 2 + (y - ylast) ** 2)
+            x_vertices = [xlast, x, x + dist + 2, xlast + 2, xlast]
+            y_vertices = [ylast, y, y + 5, y + 5, ylast]
+            plt.fill(x_vertices, y_vertices, linewidth=1, color=colors(2))
+            xlast = x
+            ylast = y
+
     def draw_wheelFill(self):
         r = self.r
         xc = self.xc
@@ -257,6 +251,26 @@ class Arc:
                 x = xc + r * np.cos(p)
                 y = yc + r * np.sin(p)
                 plt.scatter(x, y, s=.2, color="k")
+
+    def arcSmall(xc, yc, r, ang1, ang2, dome=False):
+
+        p1 = ang1 * np.pi / 180
+        p2 = ang2 * np.pi / 180
+        dp = (p2 - p1) / 10  # frequency
+
+        xlast = xc + r * np.cos(p1)
+        ylast = yc + r * np.sin(p1)
+        for p in np.arange(p1, p2 + dp, dp):
+            x = xc + r * np.cos(p)
+            y = yc + r * np.sin(p)
+            if (dome == True):
+                x = xc + r * np.cos(p * -1)
+                y = yc + r * np.sin(p * -1)
+            plt.plot([xlast, x], [ylast, y], linewidth=.9, color='k')
+            plt.fill([xlast, x, xc, xlast], [ylast, y, yc, ylast], linewidth=1, color=colors(4))
+            xlast = x
+            ylast = y
+
 
 class EllipseArc:
     def __init__(self, quad=1, start_angle=30, end_angle=60, x_offset=-10., y_offset=-20., a=70., b=50.):
@@ -347,7 +361,7 @@ class EllipseArc:
         p1 = 0. * np.pi / 180.
         p2 = 180. * np.pi / 180.
 
-        dp = (p2 - p1) / 60.
+        dp = (p2 - p1) / 30.
 
         xplast = a
         yplast = 0
@@ -396,48 +410,49 @@ class EllipseArc:
                 if start_angle * np.pi / 180 < p < end_angle * np.pi / 180:
                     # plt.plot([xplast, xp], [yplast, yp], color='orange')
                     # plt.scatter()
-                    #plt.scatter([xplast, xp + x_offset], [yplast, yp + y_offset], s=3, color=colors(1))
-                    plt.plot([xplast, xp + x_offset], [yplast, yp + y_offset], linewidth=2, color=colors(1))  # << moved to here
+                    # plt.scatter([xplast, xp + x_offset], [yplast, yp + y_offset], s=3, color=colors(1))
+                    plt.plot([xplast, xp + x_offset], [yplast, yp + y_offset], linewidth=2,
+                             color=colors(1))  # << moved to here
                 xplast = xp + x_offset
                 yplast = yp + y_offset
 
-        # TRY ONE
-        # for p in np.arange(p1, p2 + dp, dp):
-        #     if (np.tan(p) ** 2.) != 0:
-        #         xp = np.abs(a * b * (b * b + a * a * (np.tan(p)) ** 2.) ** -.5)  # << removed here
-        #         yp = np.abs(a * b * (a * a + b * b / (np.tan(p) ** 2.)) ** -.5)  # << removed here
-        #         if p > np.pi / 2:
-        #             xp = -xp
-        #     if start_angle * np.pi / 180 < p < end_angle * np.pi / 180:
-        #         # Line below print in POS y quadrant
-        #         plt.plot([xplast, xp + x_offset], [yplast, yp + y_offset], linewidth=.8, color='r')  # << moved to here
-        #         # print('POS:', 'P1:', xplast, yplast, 'P2:', xp, yp, )
-        #         # Line below print in NEG y quadrant
-        #         # plt.plot([xplast,xp],[-yplast,-yp],color='purple')
-        #         # print('NEG:', 'P1:', xplast, -yplast, 'P2:', xp, -yp)
-        #         xplast = xp + x_offset  # << moved to here
-        #         yplast = yp + y_offset  # << moved to here
+    def drawSquareFill(self):
+        a = self.a
+        b = self.b
 
-        # TRY TWO
-        # for p in np.arange(p1, p2 + dp, dp):
-        #
-        #     if (np.tan(p) ** 2.) != 0:
-        #         xp = (np.abs(a * b * (b * b + a * a * (np.tan(p)) ** 2.) ** -.5) + x_offset)
-        #         yp = (np.abs(a * b * (a * a + b * b / (np.tan(p) ** 2.)) ** -.5) + y_offset)
-        #         if p > np.pi / 2:
-        #             xp = -xp
-        #         if start_angle * np.pi / 180 < p < end_angle * np.pi / 180:
-        #             # Line below print in POS y quadrant
-        #             plt.plot([xplast, xp], [yplast, yp], linewidth=.8, color='red')
-        #             # print('POS:', 'P1:', xplast, yplast, 'P2:', xp, yp, )
-        #             # Line below print in NEG y quadrant
-        #             # plt.plot([xplast,xp],[-yplast,-yp],color='purple')
-        #             # print('NEG:', 'P1:', xplast, -yplast, 'P2:', xp, -yp)
-        #         xplast = xp
-        #         yplast = yp
+        x_offset = self.x_offset
+        y_offset = self.y_offset
 
-def drawFrontTrain():
-    details()
-    polygons_of_train()
-    circles_of_train()
-    lines_of_train()
+        start_angle = self.start_angle
+        end_angle = self.end_angle
+
+        p1 = 0. * np.pi / 180.
+        p2 = 180. * np.pi / 180.
+
+        dp = (p2 - p1) / 60.
+
+        xplast = a
+        yplast = 0
+
+        # TRY THREE
+        for p in np.arange(p1, p2 + dp, dp):
+            if ((np.tan(p) ** 2.) != 0):
+                xp = -(np.abs(a * b * (b * b + a * a * (np.tan(p)) ** 2.) ** -.5))
+                yp = -(np.abs(a * b * (a * a + b * b / (np.tan(p) ** 2.)) ** -.5))
+                if p > np.pi / 2:
+                    xp = -xp
+                if start_angle * np.pi / 180 < p < end_angle * np.pi / 180:
+                    # plt.plot([xplast, xp], [yplast, yp], color='orange')
+                    # plt.scatter()
+                    # plt.scatter([xplast, xp + x_offset], [yplast, yp + y_offset], s=3, color=colors(1))
+                    #plt.plot([xplast, xp + x_offset], [yplast, yp + y_offset], linewidth=2,
+                             #color=colors(1))  # << moved to here
+                    # -------------- Calculating the distance between two points to create a square
+                    dist = np.sqrt(((xp+x_offset) - xplast) ** 2 + ((yp+y_offset) - yplast) ** 2)
+                    x_vertices = [xplast, xp+x_offset, xp+x_offset + dist + 2, xplast + 2, xplast]
+                    y_vertices = [yplast, yp+y_offset, yp+y_offset + 5, yp+y_offset + 5, yplast]
+                    plt.fill(x_vertices, y_vertices, linewidth=2, color=colors(2))
+                xplast = xp + x_offset
+                yplast = yp + y_offset
+
+
