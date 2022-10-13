@@ -26,6 +26,7 @@ def colors(inputColor=0):
         return '#D2EBFF'
 
 def polygons_of_train():
+    #draws the bottom horizontal polygons
     level0 = [(74, 47), (74, 48), (83, 48), (83, 47)]
     level1 = [(65.5, 45), (67, 47), (90, 47), (90, 45)]
     level2 = [(65.5, 44), (65.5, 45), (90, 45), (90, 44)]
@@ -54,7 +55,7 @@ def polygons_of_train():
         Polygon(*window1, color="k", fill="#FFFFFF"),
         Polygon(*window2, color="k", fill="#e3e3e3"),
     )
-    # windowshine
+    # window shine
     shine_y = [31, 31, 26, 25]
     shine_x = [81, 82, 87, 87]
     shine_y_V2 = [31, 31, 27.6, 27]
@@ -62,6 +63,7 @@ def polygons_of_train():
     plt.fill(shine_x, shine_y, colors(6), shine_x_V2, shine_y_V2, colors(6))
 
 def lines_of_train():
+    #These are detail lines on the train
     draw(
         Segment((87, 32), (87, 19), "k"),  # middle window line
         Segment((90, 32), (90, 19), "k"),  # outer window line
@@ -94,7 +96,7 @@ def circles_of_train():
     # Top of train - arc
     EllipseArc(1, 21, 76, 92, 22, 20, 8).draw()
 
-    #Top of train - Detail ellises under the top of train
+    #Top of train - Detail ellpises under the top of train
     EllipseArc(1, 26, 76, 92, 25, 20, 8).draw()
     EllipseArc(1, 30, 76, 92, 25.5, 20, 8).draw()
     EllipseArc(1, 30, 76, 92, 12.5, 20, 8).drawUpsideDown()
@@ -104,6 +106,7 @@ def circles_of_train():
     EllipseArc(1, 28, 76, 92, 25.3, 20, 8).drawFill()
 
 def connector():
+    #The vertical connector lines with little arcs at the top
     #Creating background box
     x_vals = [90, 90, 94, 94, 90]
     y_vals = [14.5, 46.5, 46.5, 14.5, 14.5]
@@ -119,6 +122,7 @@ def connector():
         Arc.arcSmall(x2 + (x*.8) + .4, y2 - .5, r=.39, ang1=0, ang2=180, dome=False)  # lower
 
 def details():
+    #Minor Details that don't need to be in the foreground.
     # background color
     Arc(180, 81, 120, (-180 + 20), (-180 + 33), 20).draw_SquareFill()
     EllipseArc(1, 21, 76, 92, 22, 20, 8).drawSquareFill()
@@ -130,12 +134,12 @@ def details():
     # decorative nails - top train details
     EllipseArc(5, 21, 76, 93, 22, 20, 7.5).drawDots()
 
-
-    # filling in the wheels
+    # filling in the texture of the wheels
     Arc(70.5, 46, 3, 20, (180 - 13), 20).draw_wheelFill()
     Arc(87, 46, 3, 20, (180 - 13), 20).draw_wheelFill()
 
 def drawFrontTrain():
+    #call all the other functions so main only needs to reference this
     details()
     polygons_of_train()
     circles_of_train()
