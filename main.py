@@ -22,10 +22,12 @@ def main():
     front_of_train.polygons_of_train()
     front_of_train.lines_of_train()
     front_of_train.circles_of_train()
-    middle_train.outerBox()
-    middle_train.plotHorizLines()
-    middle_train.drawWindows()
-    middle_train.plotDoors()
+    middle_train.plotLines()
+    # middle_train.horiz()
+    # middle_train.drawWindows()
+    # middle_train.plotVertLines()
+    # #middle_train.arc()
+    # middle_train.connector()
 
     plt.show()
 

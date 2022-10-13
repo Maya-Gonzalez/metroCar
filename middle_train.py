@@ -1,5 +1,7 @@
 from vector_drawing import *
-
+'''
+Maya Gonzalez
+'''
 # section1 --> lines before first major vert line
 # exoskeleton
 x1 = 94
@@ -14,6 +16,8 @@ def outerBox():
     plt.plot(x, y, linewidth=.8, color='k')
 # x Values
 xdoor1 = 97
+xdoor2 = 115.5
+xdoor3 = 153
 xdoor4 = 171
 xHorizTopDoor = 22
 # x vals sections
@@ -21,14 +25,21 @@ xSec1Vert1 = 96
 xSec5Vert1 = xdoor4 + .75
 xSec5Vert2 = xSec5Vert1 + .75
 
-
+# y values
 yhoriz1 = 40
 yhoriz2 = 41
 yhoriz3 = 43
 yhoriz4 = 44
 yhoriz5 = 45
+yBottomWindow = 37.5
 
 # y values
+def plotLines():
+    outerBox()
+    horiz()
+    plotVertLines()
+    drawWindows()
+    connector()
 def horiz():
     
     # section 1 details: all horiz lines above the top door line, line 1 begins at outline
@@ -61,8 +72,11 @@ def horiz():
     # line4
     plt.plot((x1, xSec5Vert2), (22, 22), linewidth=.8, color='k')
     plt.fill((x1,x2,x2,x1,x1),(18,18,22,22,18), color = '#F2DCE0')
-    plt.fill((xSec5Vert2,x2,x2,xSec5Vert2,xSec5Vert2),(22,22,yhoriz2,yhoriz2,22), color = '#F2DCE0')
+    plt.fill((xSec5Vert2,x2,x2,xSec5Vert2,xSec5Vert2),(22,22,yhoriz2,yhoriz2,22), color = '#F2DCE0') # fills left vertical sec 
 
+    # middle of train
+    # section below door
+    plt.fill((xdoor2,xdoor3,xdoor3,xdoor2,xdoor2),(yBottomWindow,yBottomWindow,yhoriz1,yhoriz1,yBottomWindow), color = '#F2DCE0')
 
     # bottom of train
     # y section1: directly below doors
@@ -91,16 +105,14 @@ def horiz():
     plt.plot((x1, x2), (yhoriz5, yhoriz5), linewidth=.8, color='k')
     plt.fill((x1,x2,x2,x1,x1),(yhoriz5,yhoriz5,y2,y2,yhoriz3), color = '#F2DCE0')
     plt.plot((x1, x2), (47, 47), linewidth=.8, color='k')
-    # Filling in objects 
-    x = [xdoor1, xdoor4, xdoor4, xdoor1, xdoor1]
-    y = [42,42,47,47,42]
-    # plt.fill(x,y,color = 'k')
+
 
 
 def plotVertLines():
     # section 1
     plt.plot((xSec1Vert1, xSec1Vert1), (xHorizTopDoor, yhoriz5), linewidth=.8, color='k')
     plt.plot((xSec1Vert1 + .5, xSec1Vert1 + .5), (xHorizTopDoor, yhoriz5), linewidth=.8, color='k')
+    plt.fill((x1,xSec1Vert1,xSec1Vert1,x1,x1),(22,22,yhoriz1,yhoriz1,22), color = '#F2DCE0')
     # door 1
     plt.plot((xdoor1, xdoor1), (22, y2), linewidth=.8, color='k')
     # door 2
@@ -117,7 +129,7 @@ def drawWindows():
     # window 1 walls
     plt.plot((98, 98), (23, yhoriz1), linewidth=.8, color='k')
     plt.plot((114.5, 114.5), (23, yhoriz1), linewidth=.8, color='k')
-    # window 1, left corner
+    # window 1, top left corner
     plt.plot((98, 99), (23, 23), linewidth=.8, color='k')
     plt.plot((99, 99), (22, 23), linewidth=.8, color='k')
     # window 1, right corner
@@ -126,6 +138,10 @@ def drawWindows():
     # window 2 walls
     plt.plot((116.5, 116.5), (23, 36.5), linewidth=.8, color='k')
     plt.plot((133, 133), (23, 36.5), linewidth=.8, color='k')
+    # window 2 corners
+    arc(117.5, 36.5, r = 1, ang1 = 90, ang2 = 180, dome=False)
+    arc(132, 36.5, r = 1, ang1 = 0, ang2 = 90, dome=False)
+    #arc(115, 36.5, r = 1, ang1 = 0, ang2 = 270, dome=False)
     # window 2 bottom wall
     plt.plot((116.5 + 1, 133 - 1), (37.5, 37.5), linewidth=.8, color='k')
     # window 2, left corner
@@ -145,6 +161,9 @@ def drawWindows():
     # window 3 walls
     plt.plot((xMin, xMin), (23, 36.5), linewidth=.8, color='k')
     plt.plot((xMax, xMax), (23, 36.5), linewidth=.8, color='k')
+    # window 3 corners
+    arc(136, 36.5, r = 1, ang1 = 90, ang2 = 180, dome=False)
+    arc(150, 36.5, r = 1, ang1 = 0, ang2 = 90, dome=False)
     # window 3 bottom wall
     plt.plot((xMin + 1, xMax - 1), (37.5, 37.5), linewidth=.8, color='k')
     # window 3, left corner
@@ -169,85 +188,34 @@ def drawWindows():
     # window 4, right corner
     plt.plot((xMax-1, xMax), (23, 23), linewidth=.8, color='k')
     plt.plot((xMax-1, xMax-1), (22, 23), linewidth=.8, color='k')
+def connector():
+    # line1
+    plt.plot((x2+.75,x2+.75), (y1+.5, y2-.5), linewidth = .8, color = 'k' )
+    arc(x2+.378, y1+.5, r = .37, ang1 = 180, ang2 = 0, dome=True)
+    arc(x2+.378, y2-.5, r = .37, ang1 = 0, ang2 = 180,dome = False) # lower
+    # line2
+    plt.plot((x2+1.5,x2+1.5), (y1+.5, y2-.5), linewidth = .8, color = 'k' )
+    arc(x2+.75+.378, y1+.5, r = .37, ang1 = 0, ang2 = 180, dome=True)
+    arc(x2+.75+.378, y2-.5, r = .37, ang1 = 0, ang2 = 180,dome = False) # lower
+    # line3
+    plt.plot((x2+2.25,x2+2.25), (y1+.5, y2-.5), linewidth = .8, color = 'k' )
+    arc(x2+1.5+.378, y1+.5, r = .37, ang1 = 0, ang2 = 180, dome=True)
+    arc(x2+1.5+.378, y2-.5, r = .37, ang1 = 0, ang2 = 180, dome = False) # lower
+def arc(xc, yc, r, ang1, ang2, dome = False):
 
-def ellipse():
+    p1=ang1*np.pi/180
+    p2=ang2*np.pi/180
+    dp=(p2-p1)/10 # frequency
 
-#——————————————————————————————————–green circle
-    xc=180
-    yc= 30
-    r=5
-
-    p1=0*np.pi/180
-
-    p2=360*np.pi/180
-    dp=(p2-p1)/100
     xlast=xc+r*np.cos(p1)
     ylast=yc+r*np.sin(p1)
-    for p in np.arange(p1,p2+dp,dp):
-        x=xc+r*np.cos(p)
-        y=yc+r*np.sin(p)
-        if p > 90*np.pi/180 and p < 270*np.pi/180:
-            continue
-            #plt.plot([xlast,x],[ylast,y],color='g',linestyle=':')
-        else:
-            plt.plot([xlast,x],[ylast,y],color='g')
+    for p in np.arange(p1+dp,p2,dp):
+        x=xc+r*np.cos(p) 
+        y=yc+r*np.sin(p) 
+        if(dome == True):
+            x = xc+r*np.cos(p *-1)
+            y = yc+r*np.sin(p *-1)
+        plt.plot([xlast,x],[ylast,y],linewidth = .9, color='k')
         xlast=x
         ylast=y
-
-
-    # circle1 = plt.Circle((180, 30), 1, color='r')
-    # plt.gca().add_patch(circle1)
-
-# MATH OF ELLIPSE
-    # fig, ax = plt.subplots() # note we must use plt.subplots, not plt.subplot
-    # (or if you have an existing figure)
-    # fig = plt.gcf()
-    # ax = fig.gca()
-
-
-
-    # u= x2+.5     #x-position of the center
-    # v= 30   #y-position of the center
-    # a= .5    #radius on the x-axis
-    # b=(y2-y1)/2    #radius on the y-axis
-
-    # t = np.linspace(0, 2*np.pi, 100)
-    # plt.plot( u+a*np.cos(t) , v+b*np.sin(t) )
-# #——————————————————————————————————————ellipse
-#     a=50.
-#     b=30.
-#     p1=0.
-#     p2=180.*np.pi/180.
-#     dp=(p2-p1)/180.
-
-#     xplast=a
-#     yplast=0
-#     for p in np.arange(p1,p2+dp,dp):
-#         xp = np.abs(a*b*(b*b+a*a*(np.tan(p))**2.)**-.5)
-#         yp = np.abs(a*b*(a*a+b*b/(np.tan(p)**2.))**-.5)
-#         if p > np.pi/2:
-#             xp = -xp
-#         plt.plot([xplast,xp],[yplast,yp],color='k')
-#         plt.plot([xplast,xp],[-yplast,-yp],color='k')
-#         xplast=xp
-#         yplast=yp
-
-    # a=20.
-    # b=40.
-    # xp1=-a
-    # xp2=a
-    # dx=.1
-
-    # xplast=-a
-    # yplast=0
-    # for xp in np.arange(xp1,xp2,dx):
-    #     yp=b*(1-xp**2./a**2.)**.5
-    #     plt.plot([xplast,xp],[yplast,yp],linewidth=1,color='g')
-    #     plt.plot([xplast,xp],[-yplast,-yp],linewidth=1,color='g')
-    #     xplast=xp
-    #     yplast=yp
-
-    #     plt.plot([xplast,a],[yplast,0],linewidth=1,color='g')
-    #     plt.plot([xplast,a],[-yplast,0],linewidth=1,color='g')
-
 
