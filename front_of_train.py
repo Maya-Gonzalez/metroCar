@@ -25,7 +25,6 @@ def colors(inputColor=0):
     if inputColor == 6:
         return '#D2EBFF'
 
-
 def polygons_of_train():
     level0 = [(74, 47), (74, 48), (83, 48), (83, 47)]
     level1 = [(65.5, 45), (67, 47), (90, 47), (90, 45)]
@@ -62,7 +61,6 @@ def polygons_of_train():
     shine_x_V2 = [83, 83.4, 87, 87]
     plt.fill(shine_x, shine_y, colors(6), shine_x_V2, shine_y_V2, colors(6))
 
-
 def lines_of_train():
     draw(
         Segment((87, 32), (87, 19), "k"),  # middle window line
@@ -70,7 +68,6 @@ def lines_of_train():
         Segment((80, 19), (90, 19), "k")  # top perpendicular window line
     )
     plt.plot([77.6, 78.6], [16.8, 16.8], linewidth=1, color="k")
-
 
 def circles_of_train():
     # Wheels Arcs
@@ -144,6 +141,7 @@ def drawFrontTrain():
     circles_of_train()
     lines_of_train()
     connector()
+
 
 class Arc:
     def __init__(self, xc=1., yc=1., r=5, angle1=0., angle2=180., density=100):
@@ -270,7 +268,6 @@ class Arc:
             plt.fill([xlast, x, xc, xlast], [ylast, y, yc, ylast], linewidth=1, color=colors(4))
             xlast = x
             ylast = y
-
 
 class EllipseArc:
     def __init__(self, quad=1, start_angle=30, end_angle=60, x_offset=-10., y_offset=-20., a=70., b=50.):

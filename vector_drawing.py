@@ -78,7 +78,7 @@ def draw(*objects, origin=True, axes=True, grid=(1, 1), nice_aspect_ratio=True,
     plt.axis([x1, x2, y1, y2])
 
     plt.xticks(np.arange(x1, x2, step=10)) and plt.yticks(np.arange(y2, y1, step=10))
-    plt.grid(True)
+    #plt.grid(True)
 
     # ****COMMENTED OUT TO REPLACE FOR CUSTOM GRID****
     # sizing
